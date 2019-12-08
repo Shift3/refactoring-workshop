@@ -39,7 +39,8 @@ class BackstagePass extends Item {
 
     if (this.quality == 50) return;
     if (this.daysRemaining < 0) {
-      return this.quality = 0;
+      this.quality = 0;
+      return;
     }
 
     this.quality += 1;
@@ -75,7 +76,7 @@ const ITEM_CLASSES = {
 
 class ItemFactory {
   static for(name, daysRemaining, quality){
-    let klass = ITEM_CLASSES[name] || DEFAULT_CLASS
+    let klass = ITEM_CLASSES[name] || DEFAULT_CLASS;
     return new klass(daysRemaining, quality);
   }
 }

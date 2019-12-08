@@ -1,4 +1,4 @@
-const assert = require('chai').assert
+const assert = require('chai').assert;
 const sinon = require('sinon');
 const {InvitationSender, Mailer} = require('./invitation-sender');
 

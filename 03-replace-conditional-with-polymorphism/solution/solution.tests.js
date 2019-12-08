@@ -6,7 +6,7 @@ const BusinessPlan = require('./business-plan');
 
 describe('Individual Plan', () => {
   it('should calculate individual plan cost correctly.', () => {
-    let individual_plan = new IndividualPlan(4, 3.50,);
+    let individual_plan = new IndividualPlan(4, 3.50);
     assert.equal(individual_plan.cost(), 14.00);
   });
 });

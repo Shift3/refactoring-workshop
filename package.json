@@ -4,11 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "01": "mocha 01-*/*.tests.js",
-    "02": "mocha 02-*/*.tests.js",
-    "03": "mocha 03-*/*.tests.js",
-    "04": "mocha 04-*/*.tests.js",
-    "05": "mocha 05-*/*.tests.js"
+    "01": "mocha -w 01-*/*.tests.js",
+    "02": "mocha -w 02-*/*.tests.js",
+    "03": "mocha -w 03-*/*.tests.js",
+    "04": "mocha -w 04-*/*.tests.js",
+    "05": "mocha -w 05-*/*.tests.js"
   },
   "author": "",
   "license": "ISC",

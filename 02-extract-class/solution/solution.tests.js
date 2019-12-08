@@ -1,4 +1,4 @@
-const assert = require('chai').assert
+const assert = require('chai').assert;
 const sinon = require('sinon');
 
 const Parser = require('./parser');
@@ -50,14 +50,14 @@ spool@email.com,Jane the even Bigger`;
 describe('Parser', () => {
   it('cleans trailing and leading spaces from emails', () => {
     let csv = `email,name
-       spaces@everywhere.help      ,Space Gurl`
+       spaces@everywhere.help      ,Space Gurl`;
 
     let parser = new Parser(csv);
 
     let recipients = parser.recipients;
     let spaceGurl = recipients[0];
 
-    assert.equal(recipients.length, 1)
+    assert.equal(recipients.length, 1);
     assert.equal(spaceGurl.email, 'spaces@everywhere.help');
   });
 

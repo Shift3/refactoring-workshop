@@ -1,4 +1,4 @@
-const assert = require('chai').assert
+const assert = require('chai').assert;
 const sinon = require('sinon');
 const OrderPrinter = require('./order-printer');
 

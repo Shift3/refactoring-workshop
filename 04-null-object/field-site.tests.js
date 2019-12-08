@@ -1,5 +1,5 @@
 const sinon = require('sinon');
-const assert = require('chai').assert
+const assert = require('chai').assert;
 
 const FieldSite = require('./field-site');
 const Contact = require('./contact');
@@ -9,14 +9,14 @@ describe('Field Site', () => {
     it('construct a full location name for a site with no contact', () => {
       let fieldSite = new FieldSite('New York', null);
 
-      assert.equal(fieldSite.fullLocationName, 'New York (No Contact)')
+      assert.equal(fieldSite.fullLocationName, 'New York (No Contact)');
     });
 
     it('construct a full location name for a site with a contact', () => {
       let bobby = new Contact('Bobby', '555-555-5555');
       let fieldSite = new FieldSite('New York', bobby);
 
-      assert.equal(fieldSite.fullLocationName, 'New York (Bobby [555-555-5555])')
+      assert.equal(fieldSite.fullLocationName, 'New York (Bobby [555-555-5555])');
     });
   });
 
@@ -46,14 +46,12 @@ describe('Field Site', () => {
         .withArgs("Here is a message from me!");
 
       fieldSite.emailContact('Here is a message from me!');
-
-    })
+    });
 
     it('will not fail when called without a contact', () => {
       let fieldSite = new FieldSite('New York', null);
       fieldSite.emailContact('Here is a message from me!');
-
-    })
+    });
   });
 
 });

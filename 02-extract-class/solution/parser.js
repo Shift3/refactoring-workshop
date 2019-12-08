@@ -1,4 +1,4 @@
-const parse = require('csv-parse/lib/sync')
+const parse = require('csv-parse/lib/sync');
 
 class Parser {
   get PERMISSIVE_EMAIL_REGEX() { return /.+@.+\..+/; }
