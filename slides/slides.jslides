@@ -1,7 +1,9 @@
 ! ---------------------------------------
-! LOADS
+! LOADS / DEFINES
 ! ---------------------------------------
 .default_line_height 1.0
+.aspect 16 9
+
 
 .load_font  header            data/Bitter-Regular.ttf
 .load_font  code              data/SourceCodePro-Regular.ttf
@@ -16,15 +18,8 @@
 ! ---------------------------------------
 
 .slide Base
-.background_color 12 25 35
+.background_color 255 255 255
 .y .95
-.align right
-.right_margin .01
-.color 255 255 255 129
-.size 2
-Refactoring Workshop
-.size 1.5
-hosted by Justin Schiff
 
 ! ---------------------------------------
 ! ACTUAL SLIDES
@@ -33,43 +28,211 @@ hosted by Justin Schiff
 .slide
 .use_template Base
 
-.image refactoring_toon .pos .5 .57    .scale 80
-
-.y .1
+.y .5
 .size 7
-.color 200 254 200
+.color 0 0 0 
 .align center
 Refactoring Workshop
+.
+.size 3
+Hosted by Justin Schiff
+
+
+
+.slide
+.use_template Base
+
+.image refactoring_toon .pos .5 .5    .scale 80
 
 ! ---------------------------------------
 
 .slide
 .use_template Base
 
-.y .1
+.color 0 0 0
 .size 7
-.color 200 254 200
-Philosophy of Refactoring
+.y .5
+Write the simplest code first.
 
-.align left
-.color 255 255 255
+.slide
+.use_template Base
+
+.color 0 0 0
+.size 7
+.y .5
+Imperative, Procedural.
+
+.notes
+And then... <next slide> slinky it.
+
+.slide
+.use_template Base
+
+.color 0 0 0
+.size 7
+.y .5
+Slinky
+
+.notes
+What does that look like?
+
+.slide
+.use_template Base
+.background_color 0 0 0
+.color 232 223 199
+.y .1
 .size 4
-.y .25
-When writing code, one should always **write the simplest piece of code first**
-This will almost always be procedural, and very straightforward. As the friction
-of writing that code increases, you will yourself performing or wanting to
-perform certain actions. Wanting to duplicate code, writing lots of
-conditionals (if statements), frequently checking against null, etc.
+.font code
+.align left
 
-These actions will guide you to factor the code.
+str = ''
+users = getFromDb('users')
+for user in users -> 
+  str += user.firstName + ' ' + user.lastName
+  unless loop.last ->
+    str += ', '
 
-I like to think of the process of refactoring like an **accordion or slinky**.
-You write simple, verbose and duplicated code first, let it expand, and then
-using your judgment compress and factor the code.
+// ...
 
-.image accordion .scale 20   .pos .8 .85
+.notes
+Pseudocode
 
+.slide
+.use_template Base
+.background_color 0 0 0
+.color 232 223 199
+.y .1
+.size 4
+.font code
+.align left
 
+str = ''
+users = getFromDb('users')
+for user in users -> 
+  str += user.firstName + ' ' + user.lastName
+  unless loop.last ->
+    str += ', '
+
+// ...
+
+str = ''
+users = getFromDb('users')
+for user in users -> 
+  str += user.firstName + ' ' + user.lastName
+  unless loop.last ->
+    str += ', '
+
+.notes
+This is a simple example, but let it repeat until
+abstractions become clear.
+
+.slide
+.use_template Base
+.background_color 0 0 0
+.color 232 223 199
+.y .1
+.size 4
+.font code
+.align left
+
+str = ''
+users = getFromDb('users')
+for user in users -> 
+  **str += user.firstName + ' ' + user.lastName**
+  unless loop.last ->
+    str += ', '
+
+// ...
+
+str = ''
+users = getFromDb('users')
+for user in users -> 
+  str += user.firstName + ' ' + user.lastName
+  unless loop.last ->
+    str += ', '
+
+.slide
+.use_template Base
+.background_color 0 0 0
+.color 232 223 199
+.y .1
+.size 4
+.font code
+.align left
+
+str = ''
+users = getFromDb('users')
+for user in users -> 
+  **str += user.fullName()**
+  unless loop.last ->
+    str += ', '
+
+User ->
+  **fullName** ->
+    "{firstName} {lastName}"
+
+.slide
+.use_template Base
+.background_color 0 0 0
+.color 232 223 199
+.y .1
+.size 4
+.font code
+.align left
+
+**str = ''**
+users = getFromDb('users')
+for user in users -> 
+  str += user.fullName()
+  unless loop.last ->
+    str += ', '
+
+User ->
+  fullName ->
+    "{firstName} {lastName}"
+
+.slide
+.use_template Base
+.background_color 0 0 0
+.color 232 223 199
+.y .1
+.size 4
+.font code
+.align left
+
+users = getFromDb('users')
+str = **User.mapFullNames(users)**
+
+User ->
+  static **mapFullNames(users)** ->
+    result = ''
+    for user in users -> 
+      result += user.fullName()
+      unless loop.last ->
+        str += ', '
+    result
+  fullName ->
+    "{firstName} {lastName}"
+
+.slide
+.use_template Base
+.background_color 0 0 0
+.color 232 223 199
+.y .1
+.size 4
+.font code
+.align left
+
+users = getFromDb('users')
+str = **User.mapFullNames(users)**
+
+// ...
+
+users = getFromDb('users', { ... })
+str = **User.mapFullNames(users)**
+
+User ->
+  // ...
 ! ---------------------------------------
 
 .slide Extract Method
@@ -906,6 +1069,15 @@ Refactoring can be aided by a broader perspetive of programming paradigms.
 
 **List Processing Languages (lisp, scheme)**
 // Composability, computing, code as data.
-.image lisp .scale 25   .pos .31 .64
+.image lisp .scale 35   .pos .5 .75
 
 ! ---------------------------------------
+
+.slide
+.background_color 10 80 30
+
+.align left
+Left aligned
+
+.align right
+Right aligned
