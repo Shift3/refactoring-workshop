@@ -10,8 +10,8 @@ are designed to give you the dialect and tools you need to slot these skills
 into your toolbelt.
 
 Also we will be discussing and mentioning SOLID object oriented principles. I
-gave a [presentation](slides/solid.pdf) on the topic some time ago, if you
-need to brush up on the topic.
+gave a presentation on the topic some time ago, if you need to brush up on the
+topic.
 
 Skill Level
 -----------

@@ -51,7 +51,8 @@ class OrderPrinter {
   }
 
   get subtotal() {
-    return this._subtotal = this._subtotal || this.items.reduce((sum, item) => {
+    delete this.subtotal;
+    return this.items.reduce((sum, item) => {
       return sum + this.ITEM_COST[item];
     }, 0);
   }
