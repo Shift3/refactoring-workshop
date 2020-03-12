@@ -30,7 +30,7 @@ Prerequisites
   will be required.
 
 I recommend you install [nvm](https://github.com/nvm-sh/nvm). If you would like
-a more complete setup script for you computer that installs a bunch of useful
+a more complete setup script for your computer that installs a bunch of useful
 development tools and makes your environment more productive, I *highly*
 recommend using our [Shift3 Laptop setup
 scripts](https://github.com/shift3/laptop) which will install nvm as well as
@@ -58,6 +58,7 @@ How to Work on the Exercises
 
 The exercises are numbered, the first one is `01-extract-method`, you will `cd`
 into that directory in your terminal and can run the test file at any time.
+Read the `README.md` in the directory and then get started on the exercise.
 
 ```bash
 # change directory to first exercise
@@ -69,6 +70,8 @@ mocha order-printer.tests.js
 
 Now you can open this folder up in your editor and start the exercise.
 
+- A `README.me` file will be in each directory giving you general guidance on
+  how to approach the exercise.
 - A `solution` directory is provided with each exercise if you are stuck and
   need a nudge in the right direction, use this as a last resort. If you are in
   the workshop ask a question instead if you can.
